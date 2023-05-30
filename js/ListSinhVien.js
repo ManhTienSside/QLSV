@@ -38,7 +38,6 @@ function ListSinhVien() {
             if(result>-1){
                 resultValue.push(sinhVien);
             }
-        
         })
         return resultValue;
     }

@@ -11,6 +11,6 @@ function SinhVien(id,fullName,mail,phone,specieSv,diemRenLuyen,toan,ly,hoa) {
     this.diemTB=0;
     //method
     this.tinhdtb=function(){
-        this.diemTB = (this.toan+this.ly+this.hoa+this.diemRenLuyen)/4
+        this.diemTB = (this.toan+this.ly+this.hoa+this.diemRenLuyen)/4;
     }
 }

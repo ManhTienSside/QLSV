@@ -36,7 +36,7 @@ function main() {
     var loaiSv = document.querySelector('#loaiSV').value;
     var toan = Number(document.querySelector('#txtDiemToan').value);
     var van = Number(document.querySelector('#txtDiemVan').value);
-    console.log(id);
+    
     // tao doi tuong sv(instane)
     var sinhVien = new SinhVien(id,name,loaiSv,toan,van);
     sinhVien.tinhdtb();

@@ -26,4 +26,20 @@ function ListSinhVien() {
             this.arrSinhVien[index]=sinhVien;
         }
     }
+    this.findByName = function (findlowcase) {
+        var resultValue = [];
+        //chuyen sang chu thuong
+        var lowCase = findlowcase.toLowerCase();
+        // xoa khoang cach
+        var findKey = lowCase.replace(/\s/g,'');
+        this.arrSinhVien.map(function(sinhVien,index){
+            var name = sinhVien.fullName.toLowerCase().replace(/\s/g,'');
+            var result = name.indexOf(findKey);
+            if(result>-1){
+                resultValue.push(sinhVien);
+            }
+        
+        })
+        return resultValue;
+    }
 }

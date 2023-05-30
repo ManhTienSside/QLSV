@@ -38,14 +38,14 @@ function addSinhVien() {
     var ly = document.getElementById('txtDiemLy').value;
     var hoa = document.getElementById('txtDiemHoa').value;
     var checkVar = true;
-    checkVar= validation.checkEmpty(id,'spanMaSV','please typping input and must not space');
-    checkVar= validation.checkEmpty(fullName,'spanTenSV','please typping input and must not space');
-    checkVar= validation.checkEmpty(mail,'spanEmailSV','please typping input and must not space');
-    checkVar= validation.checkEmpty(numberPhone,'spanMatKhau','please typping input and must not space');
-    checkVar= validation.checkEmpty(diemRenLuyen,'spanRenLuyen','please typping input and must not space');
-    checkVar= validation.checkEmpty(toan,'spanToan','please typping input and must not space');
-    checkVar= validation.checkEmpty(ly,'spanLy','please typping input and must not space');
-    checkVar= validation.checkEmpty(hoa,'spanHoa','please typping input and must not space');
+    checkVar &= validation.checkEmpty(id,'spanMaSV','please typping input and must not space');
+
+    checkVar &= validation.checkEmpty(fullName,'spanTenSV','please typping input and must not space') && 
+    validation.checkName(fullName,'spanTenSV','name just value String');
+
+    checkVar &= validation.checkPhone(numberPhone,'spanMatKhau','number phone need from 9 to 10 number');
+
+    checkVar &= validation.checkEmail(mail,'spanEmailSV','need input correct form email');
     if(checkVar){ 
         //tao doi tuong sinh vien instance
         var sinhVien = new SinhVien(id,fullName,mail,Number(numberPhone),specieSv,Number(diemRenLuyen),Number(toan),Number(ly),Number(hoa));
@@ -118,4 +118,9 @@ function updateSV() {
 function resetForm() {
     document.getElementById('formQLSV').reset();
     document.getElementById('txtMaSV').disabled=false;
+}
+document.getElementById('txtSearch').onkeyup = function () {
+    var name = document.getElementById('txtSearch').value;
+    var result = danhSachSv.findByName(name);
+    showInfo(result);
 }

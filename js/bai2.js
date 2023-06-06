@@ -87,7 +87,7 @@ function showSinhVien(id) {
     var index = danhSachSv.findId(id);
     if(index >-1) {
     document.getElementById('txtMaSV').value=danhSachSv.arrSinhVien[index].id;
-    document.getElementById('txtMaSV').disabled=true;
+    document.getElementById('txtMaSV').disabled = true;
     document.getElementById('txtTenSV').value=danhSachSv.arrSinhVien[index].fullName;
     document.getElementById('txtEmail').value=danhSachSv.arrSinhVien[index].mail;
     document.getElementById('txtTelephone').value=danhSachSv.arrSinhVien[index].numberPhone;
